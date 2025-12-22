@@ -34,7 +34,7 @@ jobs:
 
       - run: |
           SHA_VALUE="${{ github.sha }}"
-          ACTION_VALUE="${{ github.action }}"
+          ACTION_VALUE="${{ github.job }}"
           TIME_VALUE=$(date +'%F %T %z')
           sed -i "s/SHA/${SHA_VALUE}/g" _site/index.html
           sed -i "s/ACTION/${ACTION_VALUE}/g" _site/index.html
