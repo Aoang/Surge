@@ -7,5 +7,16 @@
     "@ghostery/adblocker": "npm:@ghostery/adblocker@2.5.1",
     "@std/http": "jsr:@std/http@1.0.15"
   },
+  "lint": {
+    "include": [
+      "src/*.ts"
+    ],
+    "rules": {
+      "exclude": [
+        "no-import-prefix",
+        "no-unversioned-import"
+      ]
+    }
+  },
   "nodeModulesDir": "auto"
 }
