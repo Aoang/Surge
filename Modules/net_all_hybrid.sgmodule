@@ -1,0 +1,9 @@
+#!name= ASurge: All Hybrid
+#!desc= Enable All Hybrid
+#!category= ASurge
+#!date = 2024-10-15 00:00:00
+#!homepage = https://github.com/Aoang/Surge
+#!system=ios
+
+[General]
+all-hybrid = true

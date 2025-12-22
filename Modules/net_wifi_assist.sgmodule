@@ -1,0 +1,9 @@
+#!name= ASurge: WiFi Assist
+#!desc= Enable WiFi Assist
+#!category= ASurge
+#!date = 2024-10-15 00:00:00
+#!homepage = https://github.com/Aoang/Surge
+#!system=ios
+
+[General]
+wifi-assist = true

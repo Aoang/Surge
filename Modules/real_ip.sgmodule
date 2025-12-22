@@ -1,0 +1,9 @@
+#!name= ASurge: Real IP
+#!desc= Real IP
+#!category= ASurge
+#!date = 2024-10-15 00:00:00
+#!homepage = https://github.com/Aoang/Surge
+#!system=mac
+
+[General]
+always-real-ip = %APPEND% time.*.com, time.*.apple.com, localhost.ptlogin2.qq.com, stun.l.google.com,  *.ts.net, *.*.ts.net, controlplane.tailscale.com, derp*.*.*

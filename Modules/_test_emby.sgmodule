@@ -1,0 +1,11 @@
+#!name= ASurge: Test Emby
+#!desc= Test Emby
+#!category= ASurge
+#!date = 2024-10-15 00:00:00
+#!homepage = https://github.com/Aoang/Surge
+
+[Script]
+unlock_emby_premium = requires-body=1,max-size=0,script-path=https://surge.x2ox.com/Script/__emby.js,script-update-interval=86400,type=http-response,pattern=^https://mb3admin.com/.*
+
+[MITM]
+hostname = %APPEND% mb3admin.com

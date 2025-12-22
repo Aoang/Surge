@@ -1,0 +1,41 @@
+name: Build
+
+on:
+  schedule:
+    - cron: "38 * * * *"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Setup repo
+        uses: actions/checkout@v4
+
+      - name: Setup Deno
+        uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+
+      - name: Cache
+        uses: actions/cache@v3
+        with:
+          key: ${{ runner.os }}-deno-${{ hashFiles('deno.lock') }}
+          path: |
+            ~/.deno
+            ~/.cache/deno
+
+      - name: Build
+        run: deno run -A build.ts
+
+      - name: Commit files
+        run: |
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git commit -a -m "Update Ruleset"
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: "main"

@@ -1,0 +1,108 @@
+
+# App Store
+# Store content such as apps, books, and music
+DOMAIN-SUFFIX,apps.apple.com
+DOMAIN-SUFFIX,itunes.apple.com
+DOMAIN-SUFFIX,itunes-apple.com.akadns.net
+DOMAIN-SUFFIX,mzstatic.com
+DOMAIN,ppq.apple.com // Enterprise App validation
+
+# App Store Connect
+DOMAIN,appstoreconnect.apple.com
+DOMAIN,iosapps-ssl.itunes.apple.com
+DOMAIN,itcmobile.itunes.apple.com
+
+# Apple Books
+DOMAIN,buy.itunes.apple.com
+DOMAIN-SUFFIX,books.apple.com
+DOMAIN,books.itunes.apple.com
+DOMAIN,bookkeeper.itunes.apple.com
+DOMAIN,books-analytics-events.apple.com
+
+# Find My
+DOMAIN,fmfmobile.icloud.com
+DOMAIN,fmipmobile.icloud.com
+DOMAIN,statici.icloud.com
+
+# Fitness+
+DOMAIN,hls-svod.itunes.apple.com
+DOMAIN,amp-api.fitness.apple.com
+
+# > iCloud email
+DOMAIN-SUFFIX,mail.icloud.com.cn
+DOMAIN-SUFFIX,mail.me.com
+
+# > Apple Music
+PROCESS-NAME,Music
+USER-AGENT,Music*
+DOMAIN-SUFFIX,applemusic.com
+DOMAIN-SUFFIX,music.apple.com
+DOMAIN,aod.itunes.apple.com
+DOMAIN,aod-ssl.itunes.apple.com
+DOMAIN,audio.itunes.apple.com
+DOMAIN,audio-ssl.itunes.apple.com
+DOMAIN,mvod.itunes.apple.com
+DOMAIN,streamingaudio.itunes.apple.com
+DOMAIN-SUFFIX,blobstore.apple.com // iCloud Music Library
+
+# Siri
+DOMAIN,guzzoni.apple.com
+
+# Music TV
+DOMAIN,tv.applemusic.com
+
+# Software Update
+# > macOS updates
+DOMAIN,configuration.apple.com // Rosetta 2 updates
+DOMAIN,gnf-mdn.apple.com
+DOMAIN,gnf-mr.apple.com
+DOMAIN,gs.apple.com
+DOMAIN,ig.apple.com
+DOMAIN,skl.apple.com
+DOMAIN,swcdn.apple.com
+DOMAIN,swdist.apple.com
+DOMAIN,swdownload.apple.com
+DOMAIN,swpost.apple.com
+DOMAIN,swscan.apple.com
+# > macOS Recovery
+DOMAIN,oscdn.apple.com
+DOMAIN,osrecovery.apple.com
+# > iOS, iPadOS, and watchOS updates
+DOMAIN,appldnld.apple.com
+DOMAIN,ns.itunes.apple.com
+# > iOS, iPadOS, tvOS, watchOS, and macOS updates
+DOMAIN,gg.apple.com
+DOMAIN,gdmf.apple.com // Software update catalog
+DOMAIN,mesu.apple.com // Hosts software update catalogs
+DOMAIN,updates.cdn-apple.com // Software update downloads
+DOMAIN,updates-http.cdn-apple.com // Software update downloads
+DOMAIN,xp.apple.com
+
+
+# iCloud
+DOMAIN-SUFFIX,apple-cloudkit.com
+DOMAIN-SUFFIX,apple-livephotoskit.com
+DOMAIN-SUFFIX,apzones.com
+DOMAIN-SUFFIX,cdn-apple.com
+DOMAIN-SUFFIX,gc.apple.com
+DOMAIN-SUFFIX,icloud.apple.com
+DOMAIN-SUFFIX,icloud.com
+DOMAIN-SUFFIX,icloud.com.cn
+DOMAIN-SUFFIX,icloud-content.com
+DOMAIN-SUFFIX,iwork.apple.com
+DOMAIN-KEYWORD,icloud.com.akadns.net
+
+# TestFlight
+DOMAIN,beta.apple.com
+DOMAIN,testflight.apple.com
+
+# TV
+PROCESS-NAME,TV
+USER-AGENT,AppleTV*
+USER-AGENT,com.apple.tv*
+DOMAIN-SUFFIX,tv.apple.com
+DOMAIN,hls.itunes.apple.com // Trailers
+DOMAIN,hls-amt.itunes.apple.com // Trailers
+DOMAIN,play-edge.itunes.apple.com // Unblock Region
+DOMAIN,tv.applemusic.com
+DOMAIN,uts-api.itunes.apple.com

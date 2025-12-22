@@ -1,0 +1,9 @@
+#!name= ASurge: Skip Proxy
+#!desc= 跳过常见无需或不可代理的地址
+#!category= ASurge
+#!date = 2024-10-15 00:00:00
+#!homepage = https://github.com/Aoang/Surge
+
+
+[General]
+skip-proxy = 127.0.0.1, 192.168.0.0/16, 10.0.0.0/8, 172.16.0.0/12, 100.64.0.0/10, 17.0.0.0/8, localhost, *.local, passenger.t3go.cn, seed-sequoia.siri.apple.com, sequoia.apple.com

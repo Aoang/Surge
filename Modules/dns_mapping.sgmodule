@@ -1,0 +1,102 @@
+#!name= ASurge: DNS Mapping
+#!desc= DNS Mapping
+#!category= ASurge
+#!date = 2024-10-15 00:00:00
+#!homepage = https://github.com/Aoang/Surge
+
+[Host]
+ip6-localhost = ::1
+ip6-loopback = ::1
+
+# Alibaba
+taobao.com = server:223.5.5.5
+*.taobao.com = server:223.5.5.5
+tmall.com = server:223.5.5.5
+*.tmall.com = server:223.5.5.5
+*.alibaba.cn = server:223.5.5.5
+*.alibaba.com.cn = server:223.5.5.5
+*.china.alibaba.com = server:223.5.5.5
+*.1688.com = server:223.5.5.5
+*.alikunlun.com = server:223.5.5.5
+*.aliapp.com = server:223.5.5.5
+*.alicdn.com = server:223.5.5.5
+*.tbcache.com = server:223.5.5.5
+tb.cn = server:223.5.5.5
+
+# > Aliyun
+aliyun.com = server:223.5.5.5
+*.aliyun.com = server:223.5.5.5
+*.aliyuncdn.* = server:223.5.5.5
+*.aliyundrive.com = server:223.5.5.5
+*.aliyundun.com = server:223.5.5.5
+
+# > Alipay
+*.alipay.com = server:223.5.5.5
+*.alipay.com.cn = server:223.5.5.5
+*.alipayeshop.com = server:223.5.5.5
+*.alipaylog.com = server:223.5.5.5
+*.alipayobjects.com = server:223.5.5.5
+*.alipay-eco.com = server:223.5.5.5
+# *.alipaydns.com = server:223.5.5.5
+
+# Baidu
+baidu.com = server:180.76.76.76
+*.baidu.com = server:180.76.76.76
+*.bdimg.com = server:180.76.76.76
+*.bdstatic.com = server:180.76.76.76
+*.baidupcs.* = server:180.76.76.76
+*.baiduyuncdn.* = server:180.76.76.76
+*.baiduyundns.* = server:180.76.76.76
+*.bdydns.* = server:180.76.76.76
+*.bdycdn.* = server:180.76.76.76
+*.bdysite.com = server:180.76.76.76
+*.bdysites.com = server:180.76.76.76
+*.baidubce.* = server:180.76.76.76
+*.bcedns.* = server:180.76.76.76
+*.bcebos.com = server:180.76.76.76
+*.bcevod.com = server:180.76.76.76
+*.bceimg.com = server:180.76.76.76
+*.bcehost.com = server:180.76.76.76
+*.bcehosts.com = server:180.76.76.76
+dwz.cn = server:180.76.76.76
+
+# Google CN CDN
+dl.google.com = server:119.29.29.29
+dl.l.google.com = server:119.29.29.29
+fonts.googleapis.com = server:119.29.29.29
+fonts.gstatic.com = server:119.29.29.29
+
+# Tencent
+*.tencent.com = server:119.29.29.29
+*.qcloud.com = server:119.29.29.29
+*.qcloudcdn.cn = server:119.29.29.29
+*.qcloudcdn.com = server:119.29.29.29
+*.qcloudcos.com = erver:119.29.29.29
+*.qcloudimg.com = server:119.29.29.29
+*.myqcloud.com = server:119.29.29.29
+*.tencent-cloud.net = server:119.29.29.29
+*.tencentcloud-aiot.com = server:119.29.29.29
+*.tencentcloudapi.com = server:119.29.29.29
+*.tencentcloudcr.com = server:119.29.29.29
+*.tencentcloudmarket.com = server:119.29.29.29
+*.qq.com = server:119.29.29.29
+*.qlogo.cn = server:119.29.29.29
+*.qpic.cn = server:119.29.29.29
+*.weixin.qq.com = server:119.29.29.29
+*.wx.qq.com = server:119.29.29.29
+*.weixin.com = server:119.29.29.29
+*.weixinbridge.com = server:119.29.29.29
+*.wechat.com = server:119.29.29.29
+*.servicewechat.com = server:119.29.29.29
+*.weiyun.com = server:119.29.29.29
+*.gtimg.cn = server:119.29.29.29
+*.idqqimg.com = server:119.29.29.29
+*.cdn-go.cn = server:119.29.29.29
+url.cn = server:119.29.29.29
+
+# X2ox
+*.x2ox.com = server:1.1.1.1
+*.x2oe.com = server:1.1.1.1
+*.o2x.dev = server:1.1.1.1
+
+*.lan = server:system

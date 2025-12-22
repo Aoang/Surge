@@ -1,0 +1,30 @@
+# Downloader
+PROCESS-NAME,aria2c
+PROCESS-NAME,fdm
+PROCESS-NAME,Folx
+PROCESS-NAME,NetTransport
+PROCESS-NAME,Thunder
+PROCESS-NAME,ThunderVIP
+PROCESS-NAME,Transmission
+PROCESS-NAME,transmission-daemon
+PROCESS-NAME,transmission-qt
+PROCESS-NAME,BitComet
+PROCESS-NAME,uTorrent
+PROCESS-NAME,qbittorrent*
+PROCESS-NAME,DownloadService
+PROCESS-NAME,qBittorrent
+PROCESS-NAME,qbittorrent-nox
+PROCESS-NAME,WebTorrent
+PROCESS-NAME,WebTorrent Helper
+PROCESS-NAME,amuled
+PROCESS-NAME,Motrix.app
+
+# Cloudflare Tunnel
+PROCESS-NAME,cloudflared
+
+# Tailscale
+PROCESS-NAME,tailscaled
+PROCESS-NAME,Tailscale.app
+
+# Zerotier
+PROCESS-NAME,zerotier-one

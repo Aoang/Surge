@@ -1,0 +1,8 @@
+#!name= ASurge: MitM
+#!desc= 对所有域名进行 MitM，常见不可 MitM 除外
+#!category= ASurge
+#!date = 2024-10-15 00:00:00
+#!homepage = https://github.com/Aoang/Surge
+
+[MITM]
+hostname = -*.apple.com, -*.icloud.com, -*.mzstatic.com, -*.crashlytics.com, -*.tailscale.com, -derp*.*.*, *

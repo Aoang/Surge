@@ -1,0 +1,11 @@
+{
+  "tasks": {
+    "dev": "deno run -A --watch main.ts"
+  },
+  "imports": {
+    "@adguard/hostlist-compiler": "npm:@adguard/hostlist-compiler@1.0.39",
+    "@ghostery/adblocker": "npm:@ghostery/adblocker@2.5.1",
+    "@std/http": "jsr:@std/http@1.0.15"
+  },
+  "nodeModulesDir": "auto"
+}
