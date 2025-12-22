@@ -36,6 +36,6 @@ jobs:
 
       - uses: actions/upload-pages-artifact@v4
         with:
-          path: '.'
+          path: "."
 
       - uses: actions/deploy-pages@v4

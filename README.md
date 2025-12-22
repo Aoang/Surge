@@ -1,6 +1,7 @@
 # Surge
 
-继 [神机策略](https://github.com/DivineEngine/Profiles) 之后的自用 Surge 规则与模块合集，对常用服务做了拆分和按需维护，方便在配置中灵活组合。
+继 [神机策略](https://github.com/DivineEngine/Profiles) 之后的自用 Surge
+规则与模块合集，对常用服务做了拆分和按需维护，方便在配置中灵活组合。
 
 ## 目录
 
@@ -33,7 +34,7 @@
 DOMAIN-SET,https://surge.x2ox.com/Ruleset/Apple/Apple.list,Direct
 ```
 
-- **维护方式**: 手动维护  
+- **维护方式**: 手动维护
 - **用途**: 针对 Apple 服务的域名规则，方便单独调整直连 / 代理策略
 
 ---
@@ -47,7 +48,7 @@ DOMAIN-SET,https://surge.x2ox.com/Ruleset/Apple/Apple.list,Direct
 DOMAIN-SET,https://surge.x2ox.com/Ruleset/CDN/Apple.list,Direct
 ```
 
-- **维护方式**: 手动维护  
+- **维护方式**: 手动维护
 - **用途**: Apple 相关下载 / 更新等 CDN 流量，可按需直连或走特定节点
 
 #### Cloudflare CDN
@@ -57,7 +58,7 @@ DOMAIN-SET,https://surge.x2ox.com/Ruleset/CDN/Apple.list,Direct
 DOMAIN-SET,https://surge.x2ox.com/Ruleset/CDN/Cloudflare.list,Direct
 ```
 
-- **维护方式**: 手动维护  
+- **维护方式**: 手动维护
 - **用途**: Cloudflare 相关 CDN 流量的分流控制
 
 ---
@@ -69,7 +70,7 @@ DOMAIN-SET,https://surge.x2ox.com/Ruleset/CDN/Cloudflare.list,Direct
 RULE-SET,https://surge.x2ox.com/Ruleset/Process/Process.list,Direct
 ```
 
-- **维护方式**: 手动维护  
+- **维护方式**: 手动维护
 - **用途**: 常见不需要走代理的 APP / 进程，例如 P2P 下载、隧道类程序
 
 ---
@@ -81,7 +82,7 @@ RULE-SET,https://surge.x2ox.com/Ruleset/Process/Process.list,Direct
 RULE-SET,https://surge.x2ox.com/Ruleset/Telegram/Telegram.list,Proxy HK
 ```
 
-- **维护方式**: 手动维护（后续计划加入自动更新 CIDR）  
+- **维护方式**: 手动维护（后续计划加入自动更新 CIDR）
 - **用途**: Telegram 域名及 IP CIDR，可按需路由到低延迟节点
 
 ---
@@ -93,7 +94,7 @@ RULE-SET,https://surge.x2ox.com/Ruleset/Telegram/Telegram.list,Proxy HK
 RULE-SET,https://surge.x2ox.com/Ruleset/PayPal/PayPal.list,Proxy US
 ```
 
-- **维护方式**: 手动维护  
+- **维护方式**: 手动维护
 - **用途**: PayPal 相关域名，一般会分配固定 IP 的代理组以减少风控
 
 ---
@@ -105,8 +106,9 @@ RULE-SET,https://surge.x2ox.com/Ruleset/PayPal/PayPal.list,Proxy US
 RULE-SET,https://surge.x2ox.com/Ruleset/China/China.list,Direct
 ```
 
-- **维护方式**: 自动维护，数据源自 [misakaio/chnroutes2](https://github.com/misakaio/chnroutes2)  
-- **用途**: 国内 IP CIDR 直连  
+- **维护方式**: 自动维护，数据源自
+  [misakaio/chnroutes2](https://github.com/misakaio/chnroutes2)
+- **用途**: 国内 IP CIDR 直连
 - **建议顺序**: 通常放在拦截规则之后，以避免拦截规则失效
 
 ---
@@ -120,7 +122,7 @@ RULE-SET,https://surge.x2ox.com/Ruleset/China/China.list,Direct
 DOMAIN-SET,https://surge.x2ox.com/Ruleset/Microsoft/OneDrive.list,Proxy US
 ```
 
-- **维护方式**: 手动维护  
+- **维护方式**: 手动维护
 - **用途**: OneDrive 相关域名，方便针对性设置代理策略
 
 #### Teams
@@ -130,7 +132,7 @@ DOMAIN-SET,https://surge.x2ox.com/Ruleset/Microsoft/OneDrive.list,Proxy US
 DOMAIN-SET,https://surge.x2ox.com/Ruleset/Microsoft/Teams.list,Direct
 ```
 
-- **维护方式**: 手动维护  
+- **维护方式**: 手动维护
 - **用途**: Teams 会议 / 协作服务的流量分流
 
 ---
@@ -144,8 +146,9 @@ DOMAIN-SET,https://surge.x2ox.com/Ruleset/Microsoft/Teams.list,Direct
 DOMAIN-SET,https://surge.x2ox.com/Ruleset/Block/Base.set,Reject
 ```
 
-- **维护方式**: 自动维护，数据源自 [AdGuard](https://adguard.com) 与 [EasyList](https://easylist.to) 的基础规则  
-- **用途**: 基础广告、隐私保护规则，一般放在特殊规则后、出口规则前  
+- **维护方式**: 自动维护，数据源自 [AdGuard](https://adguard.com) 与
+  [EasyList](https://easylist.to) 的基础规则
+- **用途**: 基础广告、隐私保护规则，一般放在特殊规则后、出口规则前
 - **说明**: 只处理 host 相关规则，出于性能等考虑，不能完全替代插件
 
 #### Bogus
@@ -155,7 +158,8 @@ DOMAIN-SET,https://surge.x2ox.com/Ruleset/Block/Base.set,Reject
 RULE-SET,https://surge.x2ox.com/Ruleset/Block/Bogus.list,Reject
 ```
 
-- **维护方式**: 自动维护，数据源自 [felixonmars/dnsmasq-china-list](https://github.com/felixonmars/dnsmasq-china-list)
+- **维护方式**: 自动维护，数据源自
+  [felixonmars/dnsmasq-china-list](https://github.com/felixonmars/dnsmasq-china-list)
 
 #### Parallels
 
@@ -164,7 +168,7 @@ RULE-SET,https://surge.x2ox.com/Ruleset/Block/Bogus.list,Reject
 RULE-SET,https://surge.x2ox.com/Ruleset/Block/Parallels.list,Reject
 ```
 
-- **维护方式**: 手动维护  
+- **维护方式**: 手动维护
 - **用途**: 屏蔽 Parallels 相关网址
 
 #### Xiaomi
@@ -174,7 +178,8 @@ RULE-SET,https://surge.x2ox.com/Ruleset/Block/Parallels.list,Reject
 RULE-SET,https://surge.x2ox.com/Ruleset/Block/Xiaomi.list,Reject
 ```
 
-- **维护方式**: 自动维护，数据源自 [jerryn70/GoodbyeAds](https://github.com/jerryn70/GoodbyeAds)
+- **维护方式**: 自动维护，数据源自
+  [jerryn70/GoodbyeAds](https://github.com/jerryn70/GoodbyeAds)
 
 #### YouTube
 
@@ -183,7 +188,7 @@ RULE-SET,https://surge.x2ox.com/Ruleset/Block/Xiaomi.list,Reject
 RULE-SET,https://surge.x2ox.com/Ruleset/Block/YouTube.list,Reject
 ```
 
-- **维护方式**: 手动维护  
+- **维护方式**: 手动维护
 - **说明**: 不推荐使用，规则对现实广告拦截帮助有限
 
 ---
@@ -214,7 +219,7 @@ https://surge.x2ox.com/Modules/google_cn.sgmodule
 https://surge.x2ox.com/Modules/hide_vpn_icon.sgmodule
 ```
 
-- **平台**: iOS 可用  
+- **平台**: iOS 可用
 - **用途**: 隐藏系统状态栏中的 VPN 图标
 
 ### MitM 开启
@@ -223,7 +228,7 @@ https://surge.x2ox.com/Modules/hide_vpn_icon.sgmodule
 https://surge.x2ox.com/Modules/mitm.sgmodule
 ```
 
-- **用途**: 对所有域名开启 MitM（常见不可 MitM 的域名已排除）  
+- **用途**: 对所有域名开启 MitM（常见不可 MitM 的域名已排除）
 - **警告**: 不推荐随意使用，仅在明确了解 MitM 风险与用途时开启
 
 ### 绕过 FakeIP
@@ -246,6 +251,8 @@ https://surge.x2ox.com/Modules/skip_proxy.sgmodule
 
 ## LICENSE
 
-- `https://surge.x2ox.com/Ruleset/China/China.list` 保持原有协议 **CC BY-SA 2.0**
-- `https://surge.x2ox.com/Ruleset/Block/Base.set` 及相关处理代码保持原有协议 **GPLv3**
+- `https://surge.x2ox.com/Ruleset/China/China.list` 保持原有协议 **CC BY-SA
+  2.0**
+- `https://surge.x2ox.com/Ruleset/Block/Base.set` 及相关处理代码保持原有协议
+  **GPLv3**
 - 其余内容使用 **MIT** 协议
