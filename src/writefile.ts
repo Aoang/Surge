@@ -8,7 +8,7 @@ interface Props {
 export default async function writeFile(
   { title, source, content, path }: Props,
 ) {
-  const file = await Deno.open(`${Deno.cwd()}${path}`, {
+  const file = await Deno.open(`${Deno.cwd()}/_site${path}`, {
     write: true,
     truncate: true,
   });

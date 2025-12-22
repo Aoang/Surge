@@ -32,10 +32,13 @@ jobs:
             ~/.deno
             ~/.cache/deno
 
+      - run: |
+          SHA_VALUE=$(printf '%s' '\${{ github.sha }}')
+          ACTION_VALUE=$(printf '%s' '\${{ github.action }}')
+          TIME_VALUE=$(date +'%F %T %z')
+          sed -i "s#${SHA}#${SHA_VALUE}#g" _site/index.html
+          sed -i "s#${ACTION}#${ACTION_VALUE}#g" _site/index.html
+          sed -i "s#${TIME}#${TIME_VALUE}#g" _site/index.html
       - run: deno run -A build.ts
-
       - uses: actions/upload-pages-artifact@v4
-        with:
-          path: "."
-
       - uses: actions/deploy-pages@v4
