@@ -1,0 +1,220 @@
+# Download domain
+
+## Homebrew
+brew.sh
+formulae.brew.sh
+
+## GitHub
+codeload.github.com
+raw.github.com
+.githubassets.com
+.pkg.github.com
+.githubusercontent.com
+.github.io
+.ghcr.io
+images.github.media
+assets.github.dev
+
+## NPM
+static.npmjs.com
+skimdb.npmjs.com
+registry.npmjs.com
+replicate.npmjs.com
+static-production.npmjs.com
+.yarnpkg.com
+.nodejs.org
+.vscode-cdn.net
+npm.jsr.io
+
+## JS CDN
+img.jsdelivr.com
+.unpkg.com
+.npmcdn.com
+.unpkg.co
+.esm.run
+.bundle.run
+.packd.liuxingbaoyu.xyz
+cdnjs.cloudflare.com
+ajax.cdnjs.com
+
+## Docker
+registry-1.docker.io
+.cloudflare.docker.com
+.fastly.docker.com
+
+## gcr.io
+.gcr.io
+.k8s.io
+
+# Terraform
+registry.terraform.io
+
+
+## Cloudflare R2
+.cloudflarestorage.com
+.r2.dev
+
+## AWS S3
+.s3.amazonaws.com
+.s3.us-west-2.amazonaws.com
+.s3-accelerate.amazonaws.com
+.s3-global.amazonaws.com
+
+## DigitalOcean OSS
+.digitaloceanspaces.com
+
+## Vultr OSS
+.vultrobjects.com
+
+## Linode
+.linodeobjects.com
+
+## CDN77
+.cdn77-storage.com
+
+## BackBlaze B2
+.s3.us-west-002.backblazeb2.com
+
+## Vercel Blob Storage
+.public.blob.vercel-storage.com
+
+## Azure Blob Storage
+.blob.core.windows.net
+
+## Azure Files Storage
+.file.core.windows.net
+
+
+## Ruby Gems
+rubygems.org
+index.rubygems.org
+
+## Rust
+static.rust-lang.org
+
+## Python Packages
+.pypi.org
+.pythonhosted.org
+.repo.anaconda.com
+
+## JSR
+npm.jsr.io
+
+## Wasmer
+registry-cdn.wapm.io
+
+## crates.io
+.crates.io
+
+
+
+## Playwright
+playwright.azureedge.net
+playwright-akamai.azureedge.net
+
+## VirusTotal
+bigfiles.virustotal.com
+
+## MEGA
+.mega.nz
+.mega.io
+.mega.co.nz
+
+## JetBrains
+download.jetbrains.com
+download-cdn.jetbrains.com
+
+## TrueNAS
+download-core.sys.truenas.net
+
+## IINA
+dl-portal.iina.io
+dl.iina.io
+
+## SourceForge
+downloads.sourceforge.net
+.dl.sourceforge.net
+
+## OrbStack
+api-updates.orbstack.dev
+cdn-updates.orbstack.dev
+cdn-images.orbstack.dev
+
+## VSCode
+update.code.visualstudio.com
+az764295.vo.msecnd.net
+
+## Surge
+dl.nssurge.com
+
+## Wireshark
+.dl.wireshark.org
+
+## Mozilla
+download.mozilla.org
+download-installer.cdn.mozilla.net
+versioncheck-bg.addons.mozilla.org
+versioncheck.addons.mozilla.org
+aus5.mozilla.org
+
+## Arc
+releases.arc.net
+
+## Motrix
+dl.motrix.app
+
+## OneDrive
+.files.1drv.com
+
+## Dropbox
+.dl.dropboxusercontent.com
+
+## Gigabyte
+download.gigabyte.com
+
+## Electron Artifacts
+artifacts.electronjs.org
+
+## HashiCorp
+.releases.hashicorp.com
+
+## Obisidian
+releases.obsidian.md
+
+## iTerm2
+iterm2.com
+
+## TailScale
+pkgs.tailscale.com
+dl.tailscale.com
+
+## DeepL
+addins.deepl.com
+
+## NW.js
+dl.nwjs.io
+dl2.nwjs.io
+
+## Cloudflare
+pkg.cloudflareclient.com
+pkg.cloudflare.com
+downloads.cloudflareclient.com
+
+## OSMAnd
+download.osmand.net
+dl2.osmand.net
+dl3.osmand.net
+dl4.osmand.net
+dl8.osmand.net
+dl9.osmand.net
+
+## RapidAPI
+cdn-builds.paw.cloud
+
+## Cursor
+downloads.cursor.com
+cursor.blob.core.windows.net
+
+
+## NetBoot.xyz
+boot.netboot.xyz
