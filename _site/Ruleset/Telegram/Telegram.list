@@ -30,12 +30,10 @@ IP-CIDR6,2a0a:f280::/32,no-resolve
 
 # ASN: 44907, 59930, 62014, 62041, 211157
 IP-CIDR,95.161.64.0/20,no-resolve
-IP-CIDR,149.154.164.0/22,no-resolve
-IP-CIDR,149.154.168.0/22,no-resolve
-IP-CIDR,149.154.172.0/22,no-resolve
+IP-CIDR,149.154.160.0/20,no-resolve
 
 # AS31500: 109.239.140.0/24	Telegram Messenger LLP
 IP-CIDR,109.239.140.0/24,no-resolve
 
-# Source: Telegram iOS
-IP-CIDR,5.28.195.37/32,no-resolve
+# Source: https://wq.apnic.net/static/search.html?query=5.28.195.1
+IP-CIDR,5.28.192.0/18,no-resolve
