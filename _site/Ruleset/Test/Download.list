@@ -25,6 +25,7 @@ static-production.npmjs.com
 .nodejs.org
 .vscode-cdn.net
 npm.jsr.io
+registry.npmjs.org
 
 ## JS CDN
 img.jsdelivr.com
