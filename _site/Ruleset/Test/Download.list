@@ -123,6 +123,7 @@ bigfiles.virustotal.com
 ## JetBrains
 download.jetbrains.com
 download-cdn.jetbrains.com
+downloads.marketplace.jetbrains.com
 
 ## TrueNAS
 download-core.sys.truenas.net
@@ -143,6 +144,7 @@ cdn-images.orbstack.dev
 ## VSCode
 update.code.visualstudio.com
 az764295.vo.msecnd.net
+.gallerycdn.vsassets.io
 
 ## Surge
 dl.nssurge.com
