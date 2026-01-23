@@ -20,6 +20,10 @@ export default async function build() {
 
 export async function parse() {
   const resp = await fetch(addr);
+  if (resp.status !== 200) {
+    throw new Error(`Failed to fetch ${addr}, status: ${resp.status}`);
+  }
+
   const body = await resp.text();
   return body.split("\n").filter((v) => {
     if (!v) return false;
