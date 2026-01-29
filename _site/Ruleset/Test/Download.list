@@ -218,6 +218,9 @@ cdn-builds.paw.cloud
 downloads.cursor.com
 cursor.blob.core.windows.net
 
+## Google Storage
+storage.googleapis.com
+
 ## ZeroTier
 download.zerotier.com
 
