@@ -8,6 +8,8 @@ export interface RuleFile {
   readonly content: string
 }
 
+export type RuleBuilder = (fetcher?: typeof fetch) => Promise<RuleFile>
+
 export function renderRuleFile(rule: RuleFile, updatedAt = new Date()): string {
   return `# ${rule.title}, ${rule.source}\n# Update: ${updatedAt.toString()}\n${rule.content}`
 }

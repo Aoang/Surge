@@ -24,7 +24,37 @@ importers:
         specifier: ^5.9.2
         version: 5.9.3
 
+  packages/apple-cdn:
+    dependencies:
+      '@surge/core':
+        specifier: workspace:*
+        version: link:../core
+
+  packages/bogus:
+    dependencies:
+      '@surge/core':
+        specifier: workspace:*
+        version: link:../core
+
+  packages/china:
+    dependencies:
+      '@surge/core':
+        specifier: workspace:*
+        version: link:../core
+
+  packages/cloudflare:
+    dependencies:
+      '@surge/core':
+        specifier: workspace:*
+        version: link:../core
+
   packages/core: {}
+
+  packages/xiaomi:
+    dependencies:
+      '@surge/core':
+        specifier: workspace:*
+        version: link:../core
 
 packages:
 
