@@ -6,7 +6,6 @@
 ## 开发
 
 构建服务使用 Node.js 24 与 pnpm workspace。每种远程规则转换位于独立包中，
-编排入口只负责并行执行和写入 `_site`，以减少规则之间的耦合。
 
 ```shell
 pnpm install
@@ -28,10 +27,6 @@ pnpm build
 - `packages/telegram`：Telegram 域名及官方 CIDR 转换
 - `packages/xiaomi`：Xiaomi hosts 转换
 - `packages/base-set`：Base.set 广告规则转换
-
-### 协议
-
-`packages/base-set` 采用 GPL-3.0-only；仓库根项目及其他 workspace 包采用 MIT。
 
 ## 目录
 

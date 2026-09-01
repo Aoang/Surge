@@ -2,7 +2,7 @@ import liwo from '@liwo/eslint-config'
 
 export default liwo({
   ignores: [
-    '_site/**',
+    'output/**',
     'node_modules/**',
   ],
   typescript: true,

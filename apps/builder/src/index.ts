@@ -33,7 +33,7 @@ export interface BuildOptions {
 
 export async function buildAll(options: BuildOptions = {}): Promise<void> {
   const builders = options.builders ?? ruleBuilders
-  const outputDirectory = options.outputDirectory ?? resolve(process.cwd(), '_site')
+  const outputDirectory = options.outputDirectory ?? resolve(process.cwd(), 'output')
   const updatedAt = options.now ?? new Date()
 
   await Promise.all(Object.entries(builders).map(async ([name, builder]) => {

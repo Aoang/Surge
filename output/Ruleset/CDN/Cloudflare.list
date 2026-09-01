@@ -1,5 +1,5 @@
 # Cloudflare CDN, https://www.cloudflare.com/ips
-# Update: Mon Dec 22 2025 17:07:08 GMT+0800 (China Standard Time)
+# Update: 2026-09-01 17:28:53 +08
 IP-CIDR,173.245.48.0/20
 IP-CIDR,103.21.244.0/22
 IP-CIDR,103.22.200.0/22
@@ -24,5 +24,3 @@ IP-CIDR6,2405:b500::/32
 IP-CIDR6,2405:8100::/32
 IP-CIDR6,2a06:98c0::/29
 IP-CIDR6,2c0f:f248::/32
-IP-CIDR6,1.0.0.1/32
-IP-CIDR6,1.1.1.1/32

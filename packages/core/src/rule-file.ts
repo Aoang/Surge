@@ -10,8 +10,23 @@ export interface RuleFile {
 
 export type RuleBuilder = (fetcher?: typeof fetch) => Promise<RuleFile>
 
+export function formatUpdatedAt(updatedAt: Date): string {
+  const parts = new Intl.DateTimeFormat('sv-SE', {
+    timeZone: 'Asia/Shanghai',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: false,
+  }).format(updatedAt)
+
+  return `${parts} +08`
+}
+
 export function renderRuleFile(rule: RuleFile, updatedAt = new Date()): string {
-  return `# ${rule.title}, ${rule.source}\n# Update: ${updatedAt.toString()}\n${rule.content}`
+  return `# ${rule.title}, ${rule.source}\n# Update: ${formatUpdatedAt(updatedAt)}\n${rule.content}`
 }
 
 export async function writeRuleFile(
