@@ -2,9 +2,9 @@ name: Build
 
 on:
   schedule:
-    - cron: "38 * * * *"
+    - cron: '38 * * * *'
   push:
-    branches: ["main"]
+    branches: [main]
 
 permissions:
   contents: read
@@ -12,7 +12,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: "pages"
+  group: pages
   cancel-in-progress: false
 
 jobs:
@@ -21,17 +21,15 @@ jobs:
 
     steps:
       - uses: actions/checkout@v6
-      - uses: denoland/setup-deno@v2
+      - uses: pnpm/action-setup@v4
         with:
-          deno-version: lts
-
-      - uses: actions/cache@v5
+          run_install: false
+      - uses: actions/setup-node@v6
         with:
-          key: ${{ runner.os }}-deno-${{ hashFiles('deno.lock') }}
-          path: |
-            ~/.deno
-            ~/.cache/deno
+          node-version: 24
+          cache: pnpm
 
+      - run: pnpm install --frozen-lockfile
       - run: |
           SHA_VALUE="${{ github.sha }}"
           ACTION_VALUE="${{ github.job }}"
@@ -39,6 +37,6 @@ jobs:
           sed -i "s/SHA/${SHA_VALUE}/g" _site/index.html
           sed -i "s/ACTION/${ACTION_VALUE}/g" _site/index.html
           sed -i "s/TIME/${TIME_VALUE}/g" _site/index.html
-      - run: deno run -A build.ts
+      - run: pnpm build
       - uses: actions/upload-pages-artifact@v4
       - uses: actions/deploy-pages@v4

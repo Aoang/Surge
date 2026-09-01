@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
 
-import { buildBaseSet, parseBaseSet } from './index.ts'
+import { createBaseRule, parseBaseSet } from './index.ts'
 
 test('parseBaseSet keeps plain host rules and applies exceptions', () => {
   const domains = parseBaseSet([[
@@ -15,8 +15,8 @@ test('parseBaseSet keeps plain host rules and applies exceptions', () => {
   assert.deepEqual(domains, ['.tracking.example.com'])
 })
 
-test('buildBaseSet appends project-specific telemetry domains', async () => {
-  const rule = await buildBaseSet(() => Promise.resolve(new Response('')))
+test('createBaseRule appends project-specific telemetry domains', () => {
+  const rule = createBaseRule([])
 
   assert.match(rule.content, /\.log\.aliyuncs\.com/)
   assert.match(rule.content, /cls\.ap-shanghai\.tencentcloudapi\.com/)

@@ -1,0 +1,21 @@
+{
+  "name": "@surge/builder",
+  "type": "module",
+  "version": "0.0.0",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "build": "tsx src/cli.ts",
+    "test": "node --import tsx --test src/*.test.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@surge/apple-cdn": "workspace:*",
+    "@surge/base-set": "workspace:*",
+    "@surge/bogus": "workspace:*",
+    "@surge/china": "workspace:*",
+    "@surge/cloudflare": "workspace:*",
+    "@surge/core": "workspace:*",
+    "@surge/xiaomi": "workspace:*"
+  }
+}

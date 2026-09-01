@@ -3,6 +3,34 @@
 继 [神机策略](https://github.com/DivineEngine/Profiles) 之后的自用 Surge
 规则与模块合集，对常用服务做了拆分和按需维护，方便在配置中灵活组合。
 
+## 开发
+
+构建服务使用 Node.js 24 与 pnpm workspace。每种远程规则转换位于独立包中，
+编排入口只负责并行执行和写入 `_site`，以减少规则之间的耦合。
+
+```shell
+pnpm install
+pnpm check
+pnpm build
+```
+
+设置 `SURGE_OUTPUT_DIR` 可以将构建结果写入其他目录。
+
+### Workspace
+
+- `apps/builder`：构建编排 CLI
+- `packages/core`：网络请求与规则文件输出
+- `packages/apple-cdn`：Apple CDN dnsmasq 转换
+- `packages/bogus`：Bogus NXDOMAIN 转换
+- `packages/china`：中国大陆 CIDR 转换
+- `packages/cloudflare`：Cloudflare IPv4/IPv6 转换
+- `packages/xiaomi`：Xiaomi hosts 转换
+- `packages/base-set`：Base.set 广告规则转换
+
+### 协议
+
+`packages/base-set` 采用 GPL-3.0-only；仓库根项目及其他 workspace 包采用 MIT。
+
 ## 目录
 
 - **Ruleset 规则集**

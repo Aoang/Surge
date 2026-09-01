@@ -1,6 +1,21 @@
 import type { RuleFile } from '@surge/core'
+import { createRequire } from 'node:module'
 import { NetworkFilter } from '@ghostery/adblocker'
-import { fetchText } from '@surge/core'
+
+interface CompilerConfiguration {
+  readonly name: string
+  readonly sources: readonly {
+    readonly source: string
+    readonly transformations: readonly string[]
+    readonly type: 'adblock'
+  }[]
+  readonly transformations: readonly string[]
+}
+
+type HostlistCompiler = (configuration: CompilerConfiguration) => Promise<string[]>
+
+const require = createRequire(import.meta.url)
+const compile = require('@adguard/hostlist-compiler') as HostlistCompiler
 
 const sources = [
   'https://adguardteam.github.io/AdGuardSDNSFilter/Filters/filter.txt',
@@ -64,14 +79,33 @@ export function parseBaseSet(inputs: readonly string[]): string[] {
     .map(hostname => `.${hostname}`))]
 }
 
-export async function buildBaseSet(fetcher: typeof fetch = fetch): Promise<RuleFile> {
-  const inputs = await Promise.all(sources.map(source => fetchText(source, fetcher)))
-  const domains = new Set([...parseBaseSet(inputs), ...additionalDomains])
-
+export function createBaseRule(compiledRules: readonly string[]): RuleFile {
+  const domains = new Set([...parseBaseSet(compiledRules), ...additionalDomains])
   return {
     title: 'Base',
     source: 'EasyList, AdGuard',
     relativePath: 'Ruleset/Block/Base.set',
     content: [...domains].join('\n'),
   }
+}
+
+export async function buildBaseSet(): Promise<RuleFile> {
+  const compiledRules = await compile({
+    name: 'Base',
+    sources: sources.map(source => ({
+      type: 'adblock',
+      source,
+      transformations: ['RemoveComments', 'Validate'],
+    })),
+    transformations: [
+      'RemoveComments',
+      'Compress',
+      'Validate',
+      'Deduplicate',
+      'RemoveEmptyLines',
+      'TrimLines',
+    ],
+  })
+
+  return createBaseRule(compiledRules)
 }
