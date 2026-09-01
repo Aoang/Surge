@@ -1,0 +1,26 @@
+{
+  "name": "surge-rules",
+  "type": "module",
+  "version": "0.0.0",
+  "private": true,
+  "packageManager": "pnpm@11.0.9",
+  "license": "MIT",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "build": "pnpm --filter @surge/builder build",
+    "check": "pnpm lint && pnpm typecheck && pnpm test",
+    "format": "eslint . --fix",
+    "lint": "eslint .",
+    "test": "pnpm --recursive --if-present test",
+    "typecheck": "pnpm --recursive --if-present typecheck"
+  },
+  "devDependencies": {
+    "@liwo/eslint-config": "^0.4.1",
+    "@types/node": "^24.3.0",
+    "eslint": "^10.0.3",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.2"
+  }
+}

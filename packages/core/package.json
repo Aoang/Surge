@@ -1,0 +1,12 @@
+{
+  "name": "@surge/core",
+  "type": "module",
+  "version": "0.0.0",
+  "private": true,
+  "license": "MIT",
+  "exports": "./src/index.ts",
+  "scripts": {
+    "test": "node --import tsx --test src/*.test.ts",
+    "typecheck": "tsc --noEmit"
+  }
+}

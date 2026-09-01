@@ -23,3 +23,7 @@ go.work
 .idea
 .vscode
 node_modules
+
+# Generated coverage and TypeScript state
+coverage
+*.tsbuildinfo
