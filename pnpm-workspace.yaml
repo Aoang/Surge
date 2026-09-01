@@ -2,6 +2,11 @@ packages:
   - apps/*
   - packages/*
 
+overrides:
+  '@ghostery/adblocker-content@2.5.1>@ghostery/adblocker-extended-selectors': 2.5.1
+
+  '@ghostery/adblocker@2.5.1>@ghostery/adblocker-content': 2.5.1
+  '@ghostery/adblocker@2.5.1>@ghostery/adblocker-extended-selectors': 2.5.1
 allowBuilds:
   core-js: true
   esbuild: true
