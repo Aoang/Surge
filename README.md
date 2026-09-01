@@ -24,6 +24,8 @@ pnpm build
 - `packages/bogus`：Bogus NXDOMAIN 转换
 - `packages/china`：中国大陆 CIDR 转换
 - `packages/cloudflare`：Cloudflare IPv4/IPv6 转换
+- `packages/download`：常用软件下载域名集合
+- `packages/telegram`：Telegram 域名及官方 CIDR 转换
 - `packages/xiaomi`：Xiaomi hosts 转换
 - `packages/base-set`：Base.set 广告规则转换
 
@@ -110,7 +112,8 @@ RULE-SET,https://surge.x2ox.com/Ruleset/Process/Process.list,Direct
 RULE-SET,https://surge.x2ox.com/Ruleset/Telegram/Telegram.list,Proxy HK
 ```
 
-- **维护方式**: 手动维护（后续计划加入自动更新 CIDR）
+- **维护方式**: 域名及补充网段内置，CIDR 自动更新自
+  [Telegram](https://core.telegram.org/resources/cidr.txt)
 - **用途**: Telegram 域名及 IP CIDR，可按需路由到低延迟节点
 
 ---

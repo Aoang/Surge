@@ -49,6 +49,12 @@ importers:
       '@surge/core':
         specifier: workspace:*
         version: link:../../packages/core
+      '@surge/download':
+        specifier: workspace:*
+        version: link:../../packages/download
+      '@surge/telegram':
+        specifier: workspace:*
+        version: link:../../packages/telegram
       '@surge/xiaomi':
         specifier: workspace:*
         version: link:../../packages/xiaomi
@@ -96,6 +102,18 @@ importers:
         version: link:../core
 
   packages/core: {}
+
+  packages/download:
+    dependencies:
+      '@surge/core':
+        specifier: workspace:*
+        version: link:../core
+
+  packages/telegram:
+    dependencies:
+      '@surge/core':
+        specifier: workspace:*
+        version: link:../core
 
   packages/xiaomi:
     dependencies:

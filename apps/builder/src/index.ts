@@ -8,6 +8,8 @@ import { buildBogus } from '@surge/bogus'
 import { buildChinaRoutes } from '@surge/china'
 import { buildCloudflare } from '@surge/cloudflare'
 import { writeRuleFile } from '@surge/core'
+import { buildDownload } from '@surge/download'
+import { buildTelegram } from '@surge/telegram'
 import { buildXiaomi } from '@surge/xiaomi'
 
 export const ruleBuilders: Readonly<Record<string, RuleBuilder>> = {
@@ -16,6 +18,8 @@ export const ruleBuilders: Readonly<Record<string, RuleBuilder>> = {
   bogus: buildBogus,
   china: buildChinaRoutes,
   cloudflare: buildCloudflare,
+  download: buildDownload,
+  telegram: buildTelegram,
   xiaomi: buildXiaomi,
 }
 

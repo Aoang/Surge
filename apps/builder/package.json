@@ -16,6 +16,8 @@
     "@surge/china": "workspace:*",
     "@surge/cloudflare": "workspace:*",
     "@surge/core": "workspace:*",
+    "@surge/download": "workspace:*",
+    "@surge/telegram": "workspace:*",
     "@surge/xiaomi": "workspace:*"
   }
 }
