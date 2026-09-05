@@ -1,6 +1,10 @@
 import type { RuleFile } from '@surge/core'
+import { mkdtemp, rm, writeFile } from 'node:fs/promises'
 import { createRequire } from 'node:module'
+import { tmpdir } from 'node:os'
+import { join } from 'node:path'
 import { NetworkFilter } from '@ghostery/adblocker'
+import { fetchText } from '@surge/core'
 
 interface CompilerConfiguration {
   readonly name: string
@@ -89,23 +93,36 @@ export function createBaseRule(compiledRules: readonly string[]): RuleFile {
   }
 }
 
-export async function buildBaseSet(): Promise<RuleFile> {
-  const compiledRules = await compile({
-    name: 'Base',
-    sources: sources.map(source => ({
-      type: 'adblock',
-      source,
-      transformations: ['RemoveComments', 'Validate'],
-    })),
-    transformations: [
-      'RemoveComments',
-      'Compress',
-      'Validate',
-      'Deduplicate',
-      'RemoveEmptyLines',
-      'TrimLines',
-    ],
-  })
+export async function buildBaseSet(fetcher: typeof fetch = fetch): Promise<RuleFile> {
+  const temporaryDirectory = await mkdtemp(join(tmpdir(), 'surge-base-set-'))
 
-  return createBaseRule(compiledRules)
+  try {
+    const localSources = await Promise.all(sources.map(async (source, index) => {
+      const path = join(temporaryDirectory, `${index}.txt`)
+      await writeFile(path, await fetchText(source, fetcher))
+      return path
+    }))
+
+    const compiledRules = await compile({
+      name: 'Base',
+      sources: localSources.map(source => ({
+        type: 'adblock',
+        source,
+        transformations: ['RemoveComments', 'Validate'],
+      })),
+      transformations: [
+        'RemoveComments',
+        'Compress',
+        'Validate',
+        'Deduplicate',
+        'RemoveEmptyLines',
+        'TrimLines',
+      ],
+    })
+
+    return createBaseRule(compiledRules)
+  }
+  finally {
+    await rm(temporaryDirectory, { recursive: true })
+  }
 }
