@@ -1,6 +1,12 @@
+import { fetch as undiciFetch } from 'undici'
+
+// Node 24's bundled Undici can crash when a peer closes a paused HTTP/1 parser.
+// https://github.com/nodejs/undici/issues/5360
+const defaultFetcher = undiciFetch as unknown as typeof fetch
+
 export async function fetchText(
   url: string,
-  fetcher: typeof fetch = fetch,
+  fetcher: typeof fetch = defaultFetcher,
   options: FetchTextOptions = {},
 ): Promise<string> {
   const attempts = options.attempts ?? 3

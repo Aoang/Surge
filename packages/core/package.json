@@ -8,5 +8,8 @@
   "scripts": {
     "test": "node --import tsx --test src/*.test.ts",
     "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "undici": "^8.10.2"
   }
 }

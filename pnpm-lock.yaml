@@ -101,7 +101,11 @@ importers:
         specifier: workspace:*
         version: link:../core
 
-  packages/core: {}
+  packages/core:
+    dependencies:
+      undici:
+        specifier: ^8.10.2
+        version: 8.10.2
 
   packages/download:
     dependencies:
@@ -2216,6 +2220,10 @@ packages:
 
   undici-types@8.3.0:
     resolution: {integrity: sha512-j375ScV60dom+YkPFIfTLcOiPxkN/buHz5GobjLhixFuANaNs3C9l4GmrWqejgXWJ7BbJcFYpTEUkS1Ge8bpZQ==}
+
+  undici@8.10.2:
+    resolution: {integrity: sha512-/y4/bH9YNU5hi9NIrpOuvGXFcxrj3CMrV+/AYpowAYTpHn8gX/XPFjNy766FPoYY0miQhdW977JFWKGNhBdwyQ==}
+    engines: {node: '>=22.19.0'}
 
   unist-util-is@6.0.1:
     resolution: {integrity: sha512-LsiILbtBETkDz8I9p1dQ0uyRUWuaQzd/cuEeS1hoRSyW5E5XGmTzlwY1OrNzzakGowI9Dr/I8HVaw4hTtnxy8g==}
@@ -4704,6 +4712,8 @@ snapshots:
   undici-types@7.18.2: {}
 
   undici-types@8.3.0: {}
+
+  undici@8.10.2: {}
 
   unist-util-is@6.0.1:
     dependencies:
