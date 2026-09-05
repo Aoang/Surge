@@ -17,6 +17,7 @@ concurrency:
 
 jobs:
   build:
+    continue-on-error: ${{ github.event_name == 'schedule' }}
     runs-on: ubuntu-latest
 
     steps:
