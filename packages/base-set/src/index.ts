@@ -108,7 +108,7 @@ export async function buildBaseSet(fetcher: typeof fetch = fetch): Promise<RuleF
       sources: localSources.map(source => ({
         type: 'adblock',
         source,
-        transformations: ['RemoveComments', 'Validate'],
+        transformations: ['RemoveComments'],
       })),
       transformations: [
         'RemoveComments',
