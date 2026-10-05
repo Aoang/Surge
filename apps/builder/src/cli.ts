@@ -4,7 +4,7 @@ import process from 'node:process'
 import { buildAll } from './index.ts'
 
 const outputDirectory = process.env.SURGE_OUTPUT_DIR
-  ? resolve(process.env.SURGE_OUTPUT_DIR)
+  ? resolve(import.meta.dirname, '../../../', process.env.SURGE_OUTPUT_DIR)
   : resolve(import.meta.dirname, '../../../output')
 
 buildAll({

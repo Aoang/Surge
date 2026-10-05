@@ -63,7 +63,7 @@ pnpm build:panel
 `pnpm build` 先更新远程规则，再将面板构建到 `output/index.html` 和 `output/assets/`，
 保留既有的 Ruleset、Modules、Script、Icon 与 CNAME。页面与 bundle 不提交生成物。
 GitHub Pages 工作流发布整个 `output` 目录。
-设置 `SURGE_OUTPUT_DIR` 可以将生成结果写入其他目录（手动维护的资源仍在 `output/`）。
+设置 `SURGE_OUTPUT_DIR` 可以将生成结果写入其他目录，相对路径以 workspace 根目录为基准（手动维护的资源仍在 `output/`）。
 
 ### Workspace
 

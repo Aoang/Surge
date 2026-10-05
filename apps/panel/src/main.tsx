@@ -7,7 +7,7 @@ import './style.css'
 const presets: { id: Preset, name: string, label: string, description: string, icon: string }[] = [
   { id: 'balanced', name: '日常分流', label: '推荐', description: '国内与 Apple 直连，Telegram、下载等服务走代理。', icon: '◈' },
   { id: 'proxy', name: '代理优先', label: '海外服务', description: '除局域网与下载器进程外，默认使用代理出口。', icon: '↗' },
-  { id: 'direct', name: '直连净化', label: '无需节点', description: '所有请求直连，只保留广告与无效域名拦截。', icon: '◇' },
+  { id: 'direct', name: '直连净化', label: '无需节点', description: '所有请求直连，只保留广告与无效响应拦截。', icon: '◇' },
 ]
 const policyLabels: Record<string, string> = { DIRECT: '直连', Proxy: '代理', REJECT: '拦截', OFF: '不单独分流' }
 
@@ -138,7 +138,7 @@ function App() {
                     <span className="step">01</span>
                     <h2>选择你的起点</h2>
                   </div>
-                  <span className="tag">{custom ? '自定义配置' : '推荐配置'}</span>
+                  <button type="button" className={`tag ${custom ? 'custom-active' : ''}`} aria-pressed={custom} onClick={() => setCustom(true)}>自定义配置</button>
                 </div>
                 <div className="preset-grid">
                   {presets.map(preset => (
@@ -261,7 +261,7 @@ function App() {
                   <input type="checkbox" role="switch" disabled={config.platform !== 'mac'} checked={config.platform === 'mac' && config.processDirect} onChange={event => customize('processDirect', event.target.checked)} />
                 </label>
                 <div className="subheading">
-                  广告与无效域名拦截
+                  广告与无效响应拦截
                   <span>不需要安装证书</span>
                 </div>
                 {blockers.map(blocker => (
