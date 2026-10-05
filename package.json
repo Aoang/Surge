@@ -9,12 +9,15 @@
     "node": ">=24"
   },
   "scripts": {
-    "build": "pnpm --filter @surge/builder build",
+    "build": "pnpm build:rules && pnpm build:panel",
     "check": "pnpm lint && pnpm typecheck && pnpm test",
     "format": "eslint . --fix",
     "lint": "eslint .",
     "test": "pnpm --recursive --if-present test",
-    "typecheck": "pnpm --recursive --if-present typecheck"
+    "typecheck": "pnpm --recursive --if-present typecheck",
+    "build:rules": "pnpm --filter @surge/builder build",
+    "build:panel": "pnpm --filter @surge/panel build",
+    "dev": "pnpm --filter @surge/panel dev"
   },
   "devDependencies": {
     "@liwo/eslint-config": "^0.5.2",

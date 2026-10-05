@@ -3,6 +3,48 @@
 继 [神机策略](https://github.com/DivineEngine/Profiles) 之后的自用 Surge
 规则与模块合集，对常用服务做了拆分和按需维护，方便在配置中灵活组合。
 
+## 配置面板
+
+打开 [配置面板](https://surge.x2ox.com/)，选择 macOS / iOS 与推荐方案：
+
+- **日常分流**：国内 IP、Apple、Teams 直连，Telegram、PayPal、OneDrive、软件下载使用代理，其他请求默认代理。
+- **代理优先**：局域网与 macOS 下载器 / 隧道进程直连，其他请求默认代理。
+- **直连净化**：无需节点，所有请求直连，保留基础广告与无效响应 IP 拦截。
+
+填写 HTTPS Surge 订阅地址，或粘贴 Surge `[Proxy]` 格式的节点行。
+订阅应为 Surge 配置或节点列表，Clash YAML、Base64 通用订阅、分享链接不能直接使用。
+订阅地址和节点密码只在页面内存中处理，不上传、不保存；导出的配置会包含这些信息。
+
+调整服务策略、拦截项目、DNS、IPv6 或自定义规则后，面板进入自定义模式。
+重新选择推荐方案会重置分流、拦截和自定义规则，保留节点与网络设置。
+配置通过输入检查后可以实时预览、复制和下载 `.conf` 文件。
+在 Surge 中导入文件，使用**规则模式**，等待远程规则与节点加载完成，再选择代理节点。
+面板检查地址、节点行结构、策略引用、域名与网段；节点协议参数和远程资源内容仍由 Surge 验证。
+
+### 分流顺序
+
+Surge 从上到下匹配，第一条命中的规则决定出口：
+
+1. 自定义规则（例如广告误拦截的直连例外）。
+2. 局域网直连。
+3. 广告与无效响应 IP 拦截。
+4. macOS 下载器、隧道进程直连；iOS 不生成此规则。
+5. 服务分流，Apple CDN 优先于 Apple 服务。
+6. 国内 IP / GEOIP CN 直连（可关闭，允许 DNS 解析）。
+7. `FINAL` 兜底，`dns-failed` 允许解析失败时交给兜底策略。
+
+Apple、Apple CDN、Cloudflare、OneDrive 等文件含规则行，使用 `RULE-SET`；
+基础广告、小米广告与软件下载文件是域名列表，使用 `DOMAIN-SET`。
+Cloudflare 覆盖大量无关网站，默认关闭；启用后使用 `no-resolve`。
+PayPal 等代理服务各自生成手动策略组，复用 Proxy 节点列表，可单独固定节点。
+选择“不单独分流”会省略该服务的专用规则，让请求继续匹配后面的规则。
+模块在 Surge 中单独安装，不自动启用 MITM，也不写入下载的配置。
+
+配置语义参考 [Surge 规则手册](https://manual.nssurge.com/rules/overview.html)、
+[规则集](https://manual.nssurge.com/rules/ruleset.html)、
+[外部策略与组复用](https://manual.nssurge.com/policy-groups/policy-including.html)
+和 [模块](https://manual.nssurge.com/profile/module.html)。
+
 ## 开发
 
 构建服务使用 Node.js 24 与 pnpm workspace。每种远程规则转换位于独立包中，
@@ -11,13 +53,22 @@
 pnpm install
 pnpm check
 pnpm build
+
+# 本地开发面板
+pnpm dev
+# 只构建面板（不下载远程规则）
+pnpm build:panel
 ```
 
-设置 `SURGE_OUTPUT_DIR` 可以将构建结果写入其他目录。
+`pnpm build` 先更新远程规则，再将面板构建到 `output/index.html` 和 `output/assets/`，
+保留既有的 Ruleset、Modules、Script、Icon 与 CNAME。页面与 bundle 不提交生成物。
+GitHub Pages 工作流发布整个 `output` 目录。
+设置 `SURGE_OUTPUT_DIR` 可以将生成结果写入其他目录（手动维护的资源仍在 `output/`）。
 
 ### Workspace
 
 - `apps/builder`：构建编排 CLI
+- `apps/panel`：Vite / React 配置面板与配置生成器
 - `packages/core`：网络请求与规则文件输出
 - `packages/apple-cdn`：Apple CDN dnsmasq 转换
 - `packages/bogus`：Bogus NXDOMAIN 转换
@@ -56,7 +107,7 @@ pnpm build
 
 ```ini
 # https://surge.x2ox.com/Ruleset/Apple/Apple.list
-DOMAIN-SET,https://surge.x2ox.com/Ruleset/Apple/Apple.list,Direct
+RULE-SET,https://surge.x2ox.com/Ruleset/Apple/Apple.list,Direct
 ```
 
 - **维护方式**: 手动维护
@@ -70,20 +121,20 @@ DOMAIN-SET,https://surge.x2ox.com/Ruleset/Apple/Apple.list,Direct
 
 ```ini
 # https://surge.x2ox.com/Ruleset/CDN/Apple.list
-DOMAIN-SET,https://surge.x2ox.com/Ruleset/CDN/Apple.list,Direct
+RULE-SET,https://surge.x2ox.com/Ruleset/CDN/Apple.list,Direct
 ```
 
-- **维护方式**: 手动维护
+- **维护方式**: 自动维护，数据源自 dnsmasq-china-list
 - **用途**: Apple 相关下载 / 更新等 CDN 流量，可按需直连或走特定节点
 
 #### Cloudflare CDN
 
 ```ini
 # https://surge.x2ox.com/Ruleset/CDN/Cloudflare.list
-DOMAIN-SET,https://surge.x2ox.com/Ruleset/CDN/Cloudflare.list,Direct
+RULE-SET,https://surge.x2ox.com/Ruleset/CDN/Cloudflare.list,Direct
 ```
 
-- **维护方式**: 手动维护
+- **维护方式**: 自动维护，数据源自 Cloudflare 官方 IPv4 / IPv6 网段
 - **用途**: Cloudflare 相关 CDN 流量的分流控制
 
 ---
@@ -145,7 +196,7 @@ RULE-SET,https://surge.x2ox.com/Ruleset/China/China.list,Direct
 
 ```ini
 # https://surge.x2ox.com/Ruleset/Microsoft/OneDrive.list
-DOMAIN-SET,https://surge.x2ox.com/Ruleset/Microsoft/OneDrive.list,Proxy US
+RULE-SET,https://surge.x2ox.com/Ruleset/Microsoft/OneDrive.list,Proxy US
 ```
 
 - **维护方式**: 手动维护
@@ -155,7 +206,7 @@ DOMAIN-SET,https://surge.x2ox.com/Ruleset/Microsoft/OneDrive.list,Proxy US
 
 ```ini
 # https://surge.x2ox.com/Ruleset/Microsoft/Teams.list
-DOMAIN-SET,https://surge.x2ox.com/Ruleset/Microsoft/Teams.list,Direct
+RULE-SET,https://surge.x2ox.com/Ruleset/Microsoft/Teams.list,Direct
 ```
 
 - **维护方式**: 手动维护
@@ -200,8 +251,8 @@ RULE-SET,https://surge.x2ox.com/Ruleset/Block/Parallels.list,Reject
 #### Xiaomi
 
 ```ini
-# https://surge.x2ox.com/Ruleset/Block/Xiaomi.list
-RULE-SET,https://surge.x2ox.com/Ruleset/Block/Xiaomi.list,Reject
+# https://surge.x2ox.com/Ruleset/Block/Xiaomi.set
+DOMAIN-SET,https://surge.x2ox.com/Ruleset/Block/Xiaomi.set,Reject
 ```
 
 - **维护方式**: 自动维护，数据源自

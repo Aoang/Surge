@@ -28,3 +28,19 @@ node_modules
 # Generated coverage and TypeScript state
 coverage
 *.tsbuildinfo
+
+# Local tooling and generated panel bundles
+.pnpm-store
+.playwright-cli
+output/assets
+output/playwright
+output/index.html
+
+# Rule files produced by workspace builders
+output/Ruleset/Block/Base.set
+output/Ruleset/Block/Bogus.list
+output/Ruleset/Block/Xiaomi.set
+output/Ruleset/CDN/
+output/Ruleset/China/
+output/Ruleset/Telegram/
+output/Ruleset/Test/Download.list
