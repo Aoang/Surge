@@ -5,7 +5,7 @@ import process from 'node:process'
 import { buildAppleCdn } from '@surge/apple-cdn'
 import { buildBaseSet } from '@surge/base-set'
 import { buildBogus } from '@surge/bogus'
-import { buildChinaRoutes } from '@surge/china'
+import { buildChinaIpv6Routes, buildChinaRoutes } from '@surge/china'
 import { buildCloudflare } from '@surge/cloudflare'
 import { writeRuleFile } from '@surge/core'
 import { buildDownload } from '@surge/download'
@@ -17,6 +17,7 @@ export const ruleBuilders: Readonly<Record<string, RuleBuilder>> = {
   baseSet: buildBaseSet,
   bogus: buildBogus,
   china: buildChinaRoutes,
+  china6: buildChinaIpv6Routes,
   cloudflare: buildCloudflare,
   download: buildDownload,
   telegram: buildTelegram,

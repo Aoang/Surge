@@ -72,7 +72,7 @@ GitHub Pages 工作流发布整个 `output` 目录。
 - `packages/core`：网络请求与规则文件输出
 - `packages/apple-cdn`：Apple CDN dnsmasq 转换
 - `packages/bogus`：Bogus NXDOMAIN 转换
-- `packages/china`：中国大陆 CIDR 转换
+- `packages/china`：中国大陆 IPv4 / IPv6 CIDR 转换
 - `packages/cloudflare`：Cloudflare IPv4/IPv6 转换
 - `packages/download`：常用软件下载域名集合
 - `packages/telegram`：Telegram 域名及官方 CIDR 转换
@@ -178,6 +178,8 @@ RULE-SET,https://surge.x2ox.com/Ruleset/PayPal/PayPal.list,Proxy US
 
 ### China
 
+#### IPv4
+
 ```ini
 # https://surge.x2ox.com/Ruleset/China/China.list
 RULE-SET,https://surge.x2ox.com/Ruleset/China/China.list,Direct
@@ -187,6 +189,17 @@ RULE-SET,https://surge.x2ox.com/Ruleset/China/China.list,Direct
   [misakaio/chnroutes2](https://github.com/misakaio/chnroutes2)
 - **用途**: 国内 IP CIDR 直连
 - **建议顺序**: 通常放在拦截规则之后，以避免拦截规则失效
+
+#### IPv6
+
+```ini
+# https://surge.x2ox.com/Ruleset/China/China6.list
+RULE-SET,https://surge.x2ox.com/Ruleset/China/China6.list,Direct
+```
+
+- **维护方式**: 自动维护，数据源自
+  [gaoyifan/china-operator-ip](https://gaoyifan.github.io/china-operator-ip/china6.txt)
+- **用途**: 国内 IPv6 CIDR 直连，规则类型为 `IP-CIDR6`
 
 ---
 
