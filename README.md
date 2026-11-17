@@ -47,7 +47,7 @@ PayPal 等代理服务各自生成手动策略组，复用 Proxy 节点列表，
 
 ## 开发
 
-构建服务使用 Node.js 24 与 pnpm workspace。每种远程规则转换位于独立包中，
+构建服务使用 Node.js 26 与 pnpm 12 workspace。每种远程规则转换位于独立包中，
 
 ```shell
 pnpm install

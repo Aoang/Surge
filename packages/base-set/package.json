@@ -11,9 +11,9 @@
   },
   "dependencies": {
     "@adguard/hostlist-compiler": "2.1.1",
-    "@ghostery/adblocker": "2.18.2",
-    "@ghostery/adblocker-content": "2.18.2",
-    "@ghostery/adblocker-extended-selectors": "2.18.2",
+    "@ghostery/adblocker": "2.20.3",
+    "@ghostery/adblocker-content": "2.20.3",
+    "@ghostery/adblocker-extended-selectors": "2.20.3",
     "@surge/core": "workspace:*"
   }
 }
