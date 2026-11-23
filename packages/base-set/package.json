@@ -10,7 +10,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@adguard/hostlist-compiler": "2.1.1",
+    "@adguard/hostlist-compiler": "3.0.0",
     "@ghostery/adblocker": "2.20.3",
     "@ghostery/adblocker-content": "2.20.3",
     "@ghostery/adblocker-extended-selectors": "2.20.3",
